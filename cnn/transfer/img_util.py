@@ -37,7 +37,7 @@ def preprocess_image(image_path, img_width=256, img_height=256, load_dims=False,
     Returns: an image of shape (3, img_width, img_height) for dim_ordering = "th",
              else an image of shape (img_width, img_height, 3) for dim ordering = "tf"
     '''
-    img = imread(image_path, mode="RGB")  # Prevents crashes due to PNG images (ARGB)
+    img = Image.open(image_path, mode="RGB")  # Prevents crashes due to PNG images (ARGB)
     if load_dims:
         global img_WIDTH, img_HEIGHT, aspect_ratio
         img_WIDTH = img.shape[0]

@@ -1,6 +1,6 @@
 import sys
 import os
-dir_path = os.path.abspath("transfer")
+dir_path = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(dir_path)
 from keras.layers import Input, merge
 from keras.models import Model,Sequential
@@ -80,7 +80,7 @@ def main(style="yasei",input_file="tmp.jpg", output_file=None, original_color=0,
 
     model.compile(Adam(),  dummy_loss)  # Dummy loss since we are learning from regularizes
 
-    model.load_weights("pretrained/"+style+'_weights.h5',by_name=False)
+    model.load_weights(dir_path+"/transfer/pretrained/"+style+'_weights.h5',by_name=False)
 
     
     t1 = time.time()
@@ -100,7 +100,7 @@ def main(style="yasei",input_file="tmp.jpg", output_file=None, original_color=0,
     if original_color > 0:
         y = original_colors(ox,y,original_color )
 
-    save_name = "output.jpg"
+    save_name = "/home/junichi200123/cnn-django/cnn/output.jpg"
 
     imsave(save_name, y)
 
