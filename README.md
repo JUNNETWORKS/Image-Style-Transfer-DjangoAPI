@@ -3,7 +3,17 @@ Image style transfer at Django
 
 This repository is Image style transfer processing at Django on WebAPI.
 
+version:
+- python3.x
+- Keras2.1.5
+- tensorflow1.6 
+
 example:
+
+run API
+```
+python manage.py runserver 0:8000
+```
 
 POST data
 ```
