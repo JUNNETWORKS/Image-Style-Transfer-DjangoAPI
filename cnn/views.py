@@ -21,8 +21,10 @@ def api(request):
     file = request.FILES["image"]
     path = os.path.join(UPLOADE_DIR, file.name)
     img = Image.open(file)
-    img.save(path)
-    style = "yasei"
+    bairitu = img.width / img.height
+    img_resize = img.resize((int(500*bairitu),int(500)))
+    img_resize.save(path)
+    style = "yasei2"
     input_file = path
     output = None  # output file name without extension
     original_color = 0  # 0~1
